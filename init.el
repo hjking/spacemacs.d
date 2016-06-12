@@ -25,13 +25,15 @@ values."
      ;; ----------------------------------------------------------------
      auto-completion
      better-defaults
-     ;; (git :variables
-     ;;      git-gutter-use-fringe t)
+     (git :variables
+          git-gutter-use-fringe t)
      markdown
      org
      ibuffer
      smex
      emacs-lisp
+     c-c++
+     hjking
      ;; syntax-checking
      )
    ;; List of additional packages that will be installed without being
@@ -71,7 +73,7 @@ values."
    ;; variable is `emacs' then the `holy-mode' is enabled at startup. `hybrid'
    ;; uses emacs key bindings for vim's insert mode, but otherwise leaves evil
    ;; unchanged. (default 'vim)
-   dotspacemacs-editing-style 'emacs
+   dotspacemacs-editing-style 'hybrid
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading t
    ;; Specify the startup banner. Default value is `official', it displays
