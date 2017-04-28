@@ -37,7 +37,7 @@
       ;; <M-m f e R> (Emacs style) to install them.
       ;; ----------------------------------------------------------------
       ivy
-      ;; auto-completion
+      ;; (auto-completion :disabled-for git)
       better-defaults
       emacs-lisp
       git
@@ -52,10 +52,14 @@
       c-c++
       python
       shell-scripts
+      vim-powerline
       ;;
       ;;;;;;;;;;;;; My Own layer
       hjking
       hjking-ui
+      hjking-org
+      hjking-hdl
+      hjking-dired
       hjking-misc
       )
     ;; List of additional packages that will be installed without being
@@ -267,7 +271,7 @@
     ;;                       text-mode
     ;;   :size-limit-kb 1000)
     ;; (default nil)
-    dotspacemacs-line-numbers nil
+    dotspacemacs-line-numbers t
     ;; Code folding method. Possible values are `evil' and `origami'.
     ;; (default 'evil)
     dotspacemacs-folding-method 'evil
@@ -323,6 +327,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   This is the place where most of your configurations should be done. Unless it is
   explicitly specified that a variable should be set before a package is loaded,
   you should place your code here."
+  (menu-bar-mode t)
+  (global-linum-mode)   ; Show line numbers by default
+  (scroll-bar-mode t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -332,9 +339,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-trello-current-prefix-keybinding "C-c o")
  '(package-selected-packages
    (quote
-    (miniedit beacon yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode insert-shebang hy-mode fish-mode cython-mode anaconda-mode pythonic wgrep unfill org-projectile alert log4e gntp org-download mwim markdown-mode ivy-hydra gitignore-mode git-link magit magit-popup git-commit with-editor dash async counsel-projectile counsel swiper ivy winum uuidgen link-hint hide-comnt eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff dumb-jump f column-enforce-mode ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smex smeargle restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el paradox page-break-lines orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode ibuffer-projectile hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav disaster define-word company-statistics company-quickhelp company-c-headers cmake-mode clean-aindent-mode clang-format buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (powerline org-trello dash-functional request-deferred deferred calfw miniedit beacon yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode insert-shebang hy-mode fish-mode cython-mode anaconda-mode pythonic wgrep unfill org-projectile alert log4e gntp org-download mwim markdown-mode ivy-hydra gitignore-mode git-link magit magit-popup git-commit with-editor dash async counsel-projectile counsel swiper ivy winum uuidgen link-hint hide-comnt eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff dumb-jump f column-enforce-mode ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smex smeargle restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el paradox page-break-lines orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode ibuffer-projectile hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav disaster define-word company-statistics company-quickhelp company-c-headers cmake-mode clean-aindent-mode clang-format buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
